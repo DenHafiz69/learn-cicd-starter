@@ -29,6 +29,4 @@ func TestGetAPIKey(t *testing.T) {
 		t.Error("Malform data produce non-empty API key or wrong error")
 	}
 
-	t.Error("This is intentional.")
-
 }
