@@ -22,7 +22,7 @@ jobs:
         run: ./scripts/buildprod.sh
 
   gcp:
-    name: GCP
+    name: GCP workflow
     runs-on: ubuntu-latest
     
     steps:
