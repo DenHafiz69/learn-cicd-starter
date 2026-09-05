@@ -27,7 +27,7 @@ jobs:
       - name: Build the app
         run: './scripts/buildprod.sh'
 
-      - name: Migrate up
+      - name: Database migrate up
         run: './scripts/migrateup.sh'
 
       - id: 'auth'
