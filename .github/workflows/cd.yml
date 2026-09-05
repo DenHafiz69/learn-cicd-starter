@@ -26,16 +26,19 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - id: 'auth'
-      uses: 'google-github-actions/auth@v2'
-      with:
-        credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v2'
+        with:
+          credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
 
-    - name: 'Set up Cloud SDK'
-      uses: 'google-github-actions/setup-gcloud@v3'
+      - name: Check out code
+        uses: actions/checkout@v6
 
-    - name: 'Use gcloud CLI'
-      run: 'gcloud info'
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v3'
 
-    - name: 'Push to GCP Registry'
-      run: 'gcloud builds submit --tag us-central1-docker.pkg.dev/notely-507712/notely-ar-repo/notely:latest .'
+      - name: 'Use gcloud CLI'
+        run: 'gcloud info'
+
+      - name: 'Push to GCP Registry'
+        run: 'gcloud builds submit --tag us-central1-docker.pkg.dev/notely-507712/notely-ar-repo/notely:latest .'
